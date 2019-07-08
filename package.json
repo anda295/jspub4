@@ -9,16 +9,9 @@
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --mode development --progress --watch",
     "prebuild": "npm run clean",
+    "precommit": "npm run lint && npm test",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
-  "pre-commit": [
-    "precommit-msg",
-    "lint"
-  ],
-  "precommit": [
-    "precommit-msg",
-    "lint"
-  ],
   "author": "",
   "license": "",
   "dependencies": {
@@ -35,9 +28,10 @@
     "babel-loader": "^8.0.6",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.18.0",
     "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^3.0.0",
     "prettier": "^1.18.2",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
