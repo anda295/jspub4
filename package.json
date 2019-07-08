@@ -8,14 +8,11 @@
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --mode development --progress --watch",
-    "prebuild": "npm run clean",
-    "precommit": "npm run lint && npm test",
-    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+    "prebuild": "npm run clean"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test"
+      "pre-commit": "npm run lint"
     }
   },
   "author": "",
