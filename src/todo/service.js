@@ -4,9 +4,9 @@ export function createNewTaskElement(taskString) {
     + '<input type=\'text\' /><button class=\'edit\'>Edit</button>'
     + '<button class=\'delete\'>Delete</button>'
     + '</li>';
+  console.log('test:');
   return listElement;
 }
-
 export function getToDos() {
-  return ['Go to the doctor', 'Buy bread', 'Call bank'];
+  return ['Go to dentist', 'sjoping list', 'todo1'];
 }

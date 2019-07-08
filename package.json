@@ -10,14 +10,6 @@
     "watch": "webpack --mode development --progress --watch",
     "prebuild": "npm run clean"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
-  "pre-commit": [
-    "lint"
-  ],
   "author": "",
   "license": "",
   "dependencies": {

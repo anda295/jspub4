@@ -1,14 +1,14 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
   // Path to your entry point. From this file Webpack will begin his work
-  entry: "./src/index.js",
+  entry: './src/index.js',
 
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
   },
   optimization: {
     splitChunks: {
@@ -16,7 +16,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          chunks: "all",
+          chunks: 'all',
           priority: 1
         }
       }
@@ -26,7 +26,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, 'src'),
         enforce: 'pre',
         use: [{
           loader: 'eslint-loader',
@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, 'src'),
         use: {
           loader: 'babel-loader',
           options: {
@@ -94,5 +94,5 @@ module.exports = {
       }
     ]
   },
-  mode: "development"
+  mode: 'development'
 };
