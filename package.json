@@ -8,9 +8,11 @@
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --mode development --progress --watch",
-    "prebuild": "npm run clean"
+    "prebuild": "npm run clean",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": [
+    "precommit-msg",
     "lint"
   ],
   "author": "",
