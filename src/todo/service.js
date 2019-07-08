@@ -4,7 +4,7 @@ export function createNewTaskElement(taskString) {
     + '<input type=\'text\' /><button class=\'edit\'>Edit</button>'
     + '<button class=\'delete\'>Delete</button>'
     + '</li>';
-  return listElement;
+  return listelement;
 }
 
 export function getToDos() {
