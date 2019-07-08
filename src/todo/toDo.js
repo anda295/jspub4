@@ -9,7 +9,7 @@ class ToDo {
   }
 
   addTask() {
-    const taskInput = document.getElementById('new-task');
+    const tasknput = document.getElementById('new-task');
     const listItem = createNewTaskElement(taskInput.value);
     document.getElementById('incomplete-tasks').appendChild(listItem);
     taskInput.value = '';
