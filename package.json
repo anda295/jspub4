@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "clean": "rimraf dist/*",
-    "lint": "eslint",
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --mode development --progress --watch",
     "prebuild": "npm run clean"
