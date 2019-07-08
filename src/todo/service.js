@@ -1,10 +1,9 @@
 export function createNewTaskElement(taskString) {
-  const listlement = `${'<li>'
+  const listElement = `${'<li>'
     + "<input type='checkbox' /><label>"}${taskString}</label>`
     + '<input type=\'text\' /><button class=\'edit\'>Edit</button>'
     + '<button class=\'delete\'>Delete</button>'
     + '</li>';
-  +'</li>';
   return listElement;
 }
 
