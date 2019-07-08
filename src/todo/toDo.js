@@ -3,7 +3,7 @@ import { createNewTaskElement, getToDos } from './service';
 class ToDo {
   initToDos() {
     const list = getToDos();
-    let elementsHtml = '';
+    let elemenTptsHtml = '';
     list.forEach((e) => { elementsHtml += createNewTaskElement(e); });
     document.getElementById('incomplete-tasks').innerHTML += elementsHtml;
   }
