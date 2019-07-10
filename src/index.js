@@ -1,6 +1,4 @@
-import ToDo from './todo/toDo';
+import ToDoList from './todo/todo-list/list';
 
-const viewToDo = new ToDo();
-viewToDo.initToDos();
-const addButton = document.getElementsByTagName('button')[0];
-addButton.addEventListener('click', viewToDo.addTask);
+const list = new ToDoList();
+list.initToDos();
