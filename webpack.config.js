@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   // Path to your entry point. From this file Webpack will begin his work
@@ -47,52 +49,46 @@ module.exports = {
         }
       },
       {
-        test: /\.(html)$/,
-        use: {
-          loader: 'html-loader',
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [{
+          loader: 'file-loader',
           options: {
-            attrs: [':data-src']
+            outputPath: 'assets/images',
+            limit: 8000, // Convert images < 8kb to base64 strings
           }
-        }
-      },
-      {
-        test: /\.module\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[name]__[local]--[hash:base64:5]'
-            }
-          }
-        ]
-      },
-      {
-        test: /^((?!\.module).)*css$$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          }
-        ]
+        }]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]',
-            outputPath: '../prod/fonts/',
-            publicPath: '../../prod/fonts/'
+            outputPath: 'fonts'
           }
         }]
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      }
+    }),
+    // new CopyWebpackPlugin([{
+    //   from: './assets',
+    //   to: 'assets/images'
+    // }])
+  ],
   mode: 'development'
 };
