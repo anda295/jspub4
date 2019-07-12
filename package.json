@@ -7,8 +7,7 @@
     "clean": "rimraf dist/*",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "build": "webpack --config webpack.config.js",
-    "watch": "webpack --mode development --progress --watch",
-    "prebuild": "npm run clean"
+    "watch": "webpack --mode development --progress --watch"
   },
   "author": "",
   "license": "",
