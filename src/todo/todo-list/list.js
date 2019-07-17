@@ -1,6 +1,7 @@
 
+
 import './list.css';
-import { getToDos, createNewTaskElement } from '../todoservice';
+import { getToDos, createNewTaskElement } from '../../services/todoservice';
 
 class ToDoList {
   constructor() {
@@ -22,6 +23,4 @@ class ToDoList {
     taskInput.value = '';
   }
 }
-export {
-  ToDoList as default
-};
+export { ToDoList as default };

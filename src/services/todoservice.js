@@ -1,3 +1,4 @@
+
 export function createNewTaskElement(taskString) {
   const listElement = `${'<li>'
     + "<input type='checkbox' /><label>"}${taskString}</label>`
@@ -7,5 +8,5 @@ export function createNewTaskElement(taskString) {
   return listElement;
 }
 export function getToDos() {
-  return ['Go to dentist', 'sjoping list', 'todo1'];
+  return ['Go to work', 'Grab a beer at JSPUB', 'Make dinner reservations', 'Pay Bills'];
 }
