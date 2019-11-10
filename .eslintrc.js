@@ -30,6 +30,7 @@ module.exports = {
     "no-mixed-operators": 0,
     "func-names": 0,
     "no-console": 0,
+    "no-debugger": 0,
     "no-use-before-define": 0,
     "comma-dangle": 0,
     "guard-for-in": 0,

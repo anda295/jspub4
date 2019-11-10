@@ -1,25 +1,26 @@
-import { getToDos } from '../todoservice';
-import ToDoItem from '../todo-item/item';
+
+
+import './list.css';
+import { getToDos, createNewTaskElement } from '../../services/todoservice';
 
 class ToDoList {
-    constructor() {
-        this.todoItem = new ToDoItem();
-        const addButton = document.getElementsByTagName('button')[0];
-        addButton.addEventListener("click", this.addToDo);
-    }
+  constructor() {
+    const addButton = document.getElementsByTagName('button')[0];
+    addButton.addEventListener('click', this.addToDo);
+  }
 
-    initToDos() {
-        const list = getToDos();
-        let elementsHtml = "";
-        list.forEach((e) => { elementsHtml += this.todoItem.createNewTaskElement(e); });
-        document.getElementById('incomplete-tasks').innerHTML += elementsHtml;
-    }
+  initToDos() {
+    const list = getToDos();
+    let elementsHtml = '';
+    list.forEach((e) => { elementsHtml += createNewTaskElement(e); });
+    document.getElementById('incomplete-tasks').innerHTML += elementsHtml;
+  }
 
-    addToDo() {
-        const taskInput = document.getElementById('new-task');
-        const listItem = this.todoItem.createNewTaskElement(taskInput.value);
-        document.getElementById('incomplete-tasks').appendChild(listItem);
-        taskInput.value = '';
-    }
+  addToDo() {
+    const taskInput = document.getElementById('new-task');
+    const listItem = createNewTaskElement(taskInput.value);
+    document.getElementById('incomplete-tasks').innerHTML += listItem;
+    taskInput.value = '';
+  }
 }
 export { ToDoList as default };

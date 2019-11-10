@@ -1,7 +1,8 @@
+
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 module.exports = {
   // Path to your entry point. From this file Webpack will begin his work
   entry: './src/index.js',
@@ -10,34 +11,13 @@ module.exports = {
   // Webpack will bundle all JavaScript into this file
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: 'main.js',
+    publicPath: '/dist/'
+
   },
-  optimization: {
-    splitChunks: {
-      name: 'vendor',
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          chunks: 'all',
-          priority: 1
-        }
-      }
-    }
-  },
+
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        enforce: 'pre',
-        use: [{
-          loader: 'eslint-loader',
-          options: {
-            fix: true,
-            quiet: true
-          }
-        }]
-      },
       {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src'),
@@ -50,9 +30,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
+        use: [{ loader: 'style-loader' }, {
+          loader: 'css-loader',
+          options: {
+            import: true,
+          },
+        }
         ]
       },
       {
@@ -60,7 +43,7 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            outputPath: 'assets/images',
+            outputPath: 'assets',
             limit: 8000, // Convert images < 8kb to base64 strings
           }
         }]
@@ -84,7 +67,7 @@ module.exports = {
         removeComments: true,
         collapseWhitespace: true
       }
-    }),
+    })
     // new CopyWebpackPlugin([{
     //   from: './assets',
     //   to: 'assets/images'
